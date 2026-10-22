@@ -14,6 +14,7 @@
   <Folder Name="/src/">
     <Project Path="src/TedToolkit.DependencyInjection/TedToolkit.DependencyInjection.csproj" />
     <Project Path="src/TedToolkit.DependencyInjection.Analyzer/TedToolkit.DependencyInjection.Analyzer.csproj" />
+    <Project Path="src/TedToolkit.DependencyInjection.CodeFixes/TedToolkit.DependencyInjection.CodeFixes.csproj" />
   </Folder>
   <Folder Name="/tests/">
     <Project Path="tests/TedToolkit.DependencyInjection.Tests/TedToolkit.DependencyInjection.Tests.csproj" />
