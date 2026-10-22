@@ -14,10 +14,13 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
     <ProjectReference Include="../TedToolkit.DependencyInjection.Analyzer/TedToolkit.DependencyInjection.Analyzer.csproj"
                       ReferenceOutputAssembly="false" PrivateAssets="all" />
+    <ProjectReference Include="../TedToolkit.DependencyInjection.CodeFixes/TedToolkit.DependencyInjection.CodeFixes.csproj"
+                      ReferenceOutputAssembly="false" PrivateAssets="all" />
     <None Include="buildTransitive/**" Pack="true" PackagePath="buildTransitive/" />
   </ItemGroup>
   <ItemGroup>
     <None Include="../TedToolkit.DependencyInjection.Analyzer/bin/$(Configuration)/netstandard2.0/TedToolkit.DependencyInjection.Analyzer.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+    <None Include="../TedToolkit.DependencyInjection.CodeFixes/bin/$(Configuration)/netstandard2.0/TedToolkit.DependencyInjection.CodeFixes.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
     <None Include="../TedToolkit.DependencyInjection.Analyzer/bin/$(Configuration)/netstandard2.0/TedToolkit.RoslynHelper.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
     <None Include="../TedToolkit.DependencyInjection.Analyzer/bin/$(Configuration)/netstandard2.0/ZString.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
     <None Include="../TedToolkit.DependencyInjection.Analyzer/bin/$(Configuration)/netstandard2.0/System.Memory.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
