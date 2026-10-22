@@ -1,0 +1,30 @@
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  run-build-project:
+    uses: TedToolkit/TedToolkit/.github/workflows/build.yml@development
+    secrets: inherit
+
+  verify-package:
+    runs-on: windows-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          submodules: recursive
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: |
+            8.0.x
+            9.0.x
+            10.0.x
+      - name: Verify package consumers and Native AOT
+        shell: pwsh
+        run: ./Build/Verify-Package.ps1 -NativeAot

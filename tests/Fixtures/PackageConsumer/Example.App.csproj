@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="$(RepositoryRoot)externals/TedToolkit/props/AlmostAllFrameworks.props" />
+  <PropertyGroup>
+    <TargetFrameworks>$(TargetFrameworks);net462</TargetFrameworks>
+    <OutputType>Exe</OutputType>
+    <OutputType Condition="$(TargetFramework.StartsWith('netstandard'))">Library</OutputType>
+    <AssemblyName>Consumer.Binary</AssemblyName>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+    <CheckEolTargetFramework>false</CheckEolTargetFramework>
+    <SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>
+    <RollForward>Major</RollForward>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="TedToolkit.DependencyInjection" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+  </ItemGroup>
+</Project>

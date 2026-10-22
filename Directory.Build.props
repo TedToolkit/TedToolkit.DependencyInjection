@@ -1,0 +1,13 @@
+<Project>
+  <PropertyGroup>
+    <RepositoryRoot>$(MSBuildThisFileDirectory)</RepositoryRoot>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <Version>1.0.0</Version>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <IsPackable>false</IsPackable>
+    <PackageProjectUrl>https://github.com/TedToolkit/TedToolkit.DependencyInjection</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/TedToolkit/TedToolkit.DependencyInjection</RepositoryUrl>
+  </PropertyGroup>
+</Project>
