@@ -25,4 +25,9 @@
     <None Include="../TedToolkit.DependencyInjection.Analyzer/bin/$(Configuration)/netstandard2.0/ZString.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
     <None Include="../TedToolkit.DependencyInjection.Analyzer/bin/$(Configuration)/netstandard2.0/System.Memory.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Include="../../.agents/skills/register-tedtoolkit-di-services/**/*"
+          Pack="true" PackagePath="skills/register-tedtoolkit-di-services/" />
+  </ItemGroup>
 </Project>
