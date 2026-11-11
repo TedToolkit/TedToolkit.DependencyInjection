@@ -9,7 +9,7 @@ permissions:
 jobs:
   run-build-project:
     if: github.ref != 'refs/heads/main'
-    uses: TedToolkit/TedToolkit/.github/workflows/build.yml@a29734aa1cebfef142bd248a6259f8b9f937430b
+    uses: TedToolkit/TedToolkit/.github/workflows/build.yml@b45c29c681eecdec42d23c3324e474a78f1902d9
 
   publish:
     if: github.ref == 'refs/heads/main'
@@ -18,7 +18,7 @@ jobs:
       contents: write
       id-token: write
     steps:
-      - uses: TedToolkit/TedToolkit/.github/actions/publish-nuget@a29734aa1cebfef142bd248a6259f8b9f937430b
+      - uses: TedToolkit/TedToolkit/.github/actions/publish-nuget@b45c29c681eecdec42d23c3324e474a78f1902d9
         with:
           nuget-user: ArchiTed
 
@@ -30,10 +30,16 @@ jobs:
       - uses: actions/checkout@v7
       - uses: actions/setup-dotnet@v6
         with:
-          dotnet-version: |
-            8.0.x
-            9.0.x
-            10.0.x
+          dotnet-version: '11.0.x'
+      - name: Install .NET runtimes for compatibility tests
+        shell: pwsh
+        run: |
+          $installer = Join-Path $env:RUNNER_TEMP 'dotnet-install.ps1'
+          Invoke-WebRequest https://dot.net/v1/dotnet-install.ps1 -OutFile $installer
+          foreach ($channel in @('8.0', '9.0', '10.0')) {
+            pwsh -NoProfile -ExecutionPolicy Bypass -File $installer -Runtime dotnet -Channel $channel -InstallDir $env:DOTNET_ROOT -SkipNonVersionedFiles -NoPath
+            if ($LASTEXITCODE -ne 0) { throw "Installing .NET $channel runtime failed." }
+          }
       - name: Verify package consumers and Native AOT
         shell: pwsh
         run: ./Build/Verify-Package.ps1 -NativeAot
@@ -46,4 +52,4 @@ jobs:
       contents: read
       pull-requests: write
     steps:
-      - uses: TedToolkit/TedToolkit/.github/actions/maintain-release-pr@a29734aa1cebfef142bd248a6259f8b9f937430b
+      - uses: TedToolkit/TedToolkit/.github/actions/maintain-release-pr@b45c29c681eecdec42d23c3324e474a78f1902d9

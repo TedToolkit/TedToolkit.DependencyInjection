@@ -1,6 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <Import Project="AlmostAllFrameworks.props" Sdk="TedToolkit.Build.Sdk" />
   <PropertyGroup>
+    <TargetFrameworks>$(TargetFrameworks);net11.0</TargetFrameworks>
+  </PropertyGroup>
+  <PropertyGroup>
     <TargetFrameworks>$(TargetFrameworks);net462</TargetFrameworks>
     <OutputType>Exe</OutputType>
     <OutputType Condition="$(TargetFramework.StartsWith('netstandard'))">Library</OutputType>

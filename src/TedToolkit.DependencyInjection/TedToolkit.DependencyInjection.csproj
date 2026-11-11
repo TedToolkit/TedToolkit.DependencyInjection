@@ -2,6 +2,9 @@
   <Import Project="NugetPackage.props" Sdk="TedToolkit.Build.Sdk" />
   <Import Project="AlmostAllFrameworks.props" Sdk="TedToolkit.Build.Sdk" />
   <PropertyGroup>
+    <TargetFrameworks>$(TargetFrameworks);net11.0</TargetFrameworks>
+  </PropertyGroup>
+  <PropertyGroup>
     <TargetFrameworks>$(TargetFrameworks);net462</TargetFrameworks>
     <IsPackable>true</IsPackable>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
