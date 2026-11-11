@@ -1,5 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="$(RepositoryRoot)externals/TedToolkit/props/AlmostAllFrameworks.props" />
+  <Import Project="AlmostAllFrameworks.props" Sdk="TedToolkit.Build.Sdk" />
   <PropertyGroup>
     <TargetFrameworks>$(TargetFrameworks);net462</TargetFrameworks>
     <OutputType>Exe</OutputType>

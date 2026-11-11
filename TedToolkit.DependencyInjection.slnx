@@ -2,7 +2,7 @@
   <Folder Name="/SolutionItems/">
     <File Path=".editorconfig" />
     <File Path=".gitignore" />
-    <File Path=".gitmodules" />
+
     <File Path="AGENTS.md" />
     <File Path="CLAUDE.md" />
     <File Path="COPYING" />
@@ -22,8 +22,5 @@
   <Folder Name="/Build/">
     <File Path="Build/Verify-Package.ps1" />
     <File Path="Build/appsettings.example.json" />
-    <Project Path="Build/Build.csproj">
-      <Build Project="false" />
-    </Project>
   </Folder>
 </Solution>

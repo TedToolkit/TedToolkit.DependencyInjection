@@ -9,7 +9,7 @@ permissions:
 jobs:
   run-build-project:
     if: github.ref != 'refs/heads/main'
-    uses: TedToolkit/TedToolkit/.github/workflows/build.yml@development
+    uses: TedToolkit/TedToolkit/.github/workflows/build.yml@a29734aa1cebfef142bd248a6259f8b9f937430b
 
   publish:
     if: github.ref == 'refs/heads/main'
@@ -18,7 +18,7 @@ jobs:
       contents: write
       id-token: write
     steps:
-      - uses: TedToolkit/TedToolkit/.github/actions/publish-nuget@c214476777e4d80d8b060b028a5bf5f514e7d028
+      - uses: TedToolkit/TedToolkit/.github/actions/publish-nuget@a29734aa1cebfef142bd248a6259f8b9f937430b
         with:
           nuget-user: ArchiTed
 
@@ -28,8 +28,6 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v7
-        with:
-          submodules: recursive
       - uses: actions/setup-dotnet@v6
         with:
           dotnet-version: |
@@ -39,3 +37,13 @@ jobs:
       - name: Verify package consumers and Native AOT
         shell: pwsh
         run: ./Build/Verify-Package.ps1 -NativeAot
+
+  release-pr:
+    needs: run-build-project
+    if: github.ref == 'refs/heads/development'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: TedToolkit/TedToolkit/.github/actions/maintain-release-pr@a29734aa1cebfef142bd248a6259f8b9f937430b
