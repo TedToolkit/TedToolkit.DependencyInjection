@@ -39,7 +39,7 @@ jobs:
           $installer = Join-Path $env:RUNNER_TEMP 'dotnet-install.ps1'
           Invoke-WebRequest https://dot.net/v1/dotnet-install.ps1 -OutFile $installer
           foreach ($channel in @('8.0', '9.0', '10.0')) {
-            pwsh -NoProfile -File $installer -Runtime dotnet -Channel $channel -InstallDir $env:DOTNET_ROOT -SkipNonVersionedFiles -NoPath
+            pwsh -NoProfile -ExecutionPolicy Bypass -File $installer -Runtime dotnet -Channel $channel -InstallDir $env:DOTNET_ROOT -SkipNonVersionedFiles -NoPath
             if ($LASTEXITCODE -ne 0) { throw "Installing .NET $channel runtime failed." }
           }
       - name: Verify package consumers and Native AOT
