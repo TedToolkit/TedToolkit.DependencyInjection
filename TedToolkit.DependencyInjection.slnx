@@ -22,8 +22,5 @@
   <Folder Name="/Build/">
     <File Path="Build/Verify-Package.ps1" />
     <File Path="Build/appsettings.example.json" />
-    <Project Path="Build/Build.csproj">
-      <Build Project="false" />
-    </Project>
   </Folder>
 </Solution>
