@@ -4,7 +4,7 @@ Declare ordinary Microsoft dependency injection registrations with attributes. T
 
 ## Quick start
 
-Reference this package and Microsoft.Extensions.DependencyInjection in an application that builds a container. Use the .NET 10 SDK or another Roslyn 5 compiler host and C# 11 or later. Runtime assets cover .NET Standard 2.0/2.1, .NET Framework 4.6.2/4.7.2/4.8, and .NET 6 through 10. Older targets should explicitly select a current C# language version.
+Reference this package and Microsoft.Extensions.DependencyInjection in an application that builds a container. Use the .NET 10 SDK or another Roslyn 5 compiler host and C# 11 or later. Runtime assets cover .NET Standard 2.0/2.1, .NET Framework 4.6.2/4.7.2/4.8, and .NET 6 through 11. Older targets should explicitly select a current C# language version.
 
 For a library that only declares or registers services, referencing TedToolkit.DependencyInjection alone
 is sufficient. It transitively provides Microsoft.Extensions.DependencyInjection.Abstractions, which contains

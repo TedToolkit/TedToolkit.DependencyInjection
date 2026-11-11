@@ -1,7 +1,7 @@
 param(
     [switch]$NativeAot,
-    [ValidateSet('net8.0', 'net9.0', 'net10.0')]
-    [string[]]$NativeAotFrameworks = @('net8.0', 'net9.0', 'net10.0')
+    [ValidateSet('net8.0', 'net9.0', 'net10.0', 'net11.0')]
+    [string[]]$NativeAotFrameworks = @('net8.0', 'net9.0', 'net10.0', 'net11.0')
 )
 
 $ErrorActionPreference = 'Stop'
@@ -68,7 +68,7 @@ Invoke-DotNet @('restore', $fixture, '--configfile', $configuration, '--packages
 Assert-PackageIdentity $fixture
 Invoke-DotNet @('build', $fixture, '-c', 'Release', '--no-restore', '-m:1', '--nologo')
 
-foreach ($framework in @('net462', 'net472', 'net48', 'net6.0', 'net7.0', 'net8.0', 'net9.0', 'net10.0')) {
+foreach ($framework in @('net462', 'net472', 'net48', 'net6.0', 'net7.0', 'net8.0', 'net9.0', 'net10.0', 'net11.0')) {
     $output = Join-Path (Split-Path -Parent $fixture) "bin/Release/$framework/Consumer.Binary"
     Write-Host "Running package consumer for $framework."
     if ($framework -in @('net462', 'net472', 'net48')) {
