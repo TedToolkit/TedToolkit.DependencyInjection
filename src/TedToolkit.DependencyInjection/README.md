@@ -215,6 +215,16 @@ Invalid declarations suppress module generation and produce a source diagnostic 
 
 Normal MSDI runtime behavior remains authoritative, including constructor ambiguity, missing services, generic constraints, collection ordering, disposal, and first-match Replace semantics. Source generation does not add rollback, whole-module deduplication, alias sharing, or a second container.
 
+### IDE simplification
+
+TDI013 is an enabled-by-default Info suggestion for class self registrations. For example,
+`[Scoped<OrderService>]` on `OrderService` can become `[Scoped]`. The same suggestion applies to
+Singleton and Transient, including record classes. Factory methods, properties, and fields are
+excluded, as are type arguments containing preprocessor directives. The code fix preserves
+registration options such as Key and Mode and supports Fix All.
+This suggestion does not suppress module generation. To disable it, set
+`dotnet_diagnostic.TDI013.severity = none` in `.editorconfig`.
+
 ## Source project references
 
 NuGet loads the bundled generator automatically. Source consumers reference both projects and expose the project name:
@@ -228,4 +238,4 @@ NuGet loads the bundled generator automatically. Source consumers reference both
 </ItemGroup>
 ```
 
-The analyzer is not published independently. The main package includes its assembly, TedToolkit.RoslynHelper, ZString, and System.Memory under analyzers/dotnet/cs. Compiler dependencies do not become runtime dependencies. The runtime package depends on Microsoft.Extensions.DependencyInjection.Abstractions.
+The analyzer is not published independently. The main package includes the analyzer and IDE code-fix assemblies, TedToolkit.RoslynHelper, ZString, and System.Memory under analyzers/dotnet/cs. Code fixes use the IDE's Roslyn Workspaces services. Compiler dependencies do not become runtime dependencies. The runtime package depends on Microsoft.Extensions.DependencyInjection.Abstractions.

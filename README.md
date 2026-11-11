@@ -54,7 +54,7 @@ dotnet run --project tests/TedToolkit.DependencyInjection.Tests -c Release
 dotnet pack src/TedToolkit.DependencyInjection -c Release -o artifacts/packages
 ```
 
-The solution contains the runtime, generator, and one TUnit test project. Tests compile and execute generated consumers against the real DI container. `Build/` integrates the shared TedToolkit pipeline; copy `Build/appsettings.example.json` to `Build/appsettings.json` before running `dotnet run --project Build -c Release`.
+The solution contains the runtime, generator and analyzers, IDE code fixes, and one TUnit test project. Tests compile and execute generated consumers against the real DI container and verify analyzer suggestions and code fixes. `Build/` integrates the shared TedToolkit pipeline; copy `Build/appsettings.example.json` to `Build/appsettings.json` before running `dotnet run --project Build -c Release`.
 
 The package verification also builds a .NET Standard 2.0 consumer that references only this package and
 checks that Microsoft.Extensions.DependencyInjection itself is absent from that consumer's dependency graph.
