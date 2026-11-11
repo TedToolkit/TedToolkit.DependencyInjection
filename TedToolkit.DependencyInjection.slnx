@@ -2,7 +2,7 @@
   <Folder Name="/SolutionItems/">
     <File Path=".editorconfig" />
     <File Path=".gitignore" />
-    <File Path=".gitmodules" />
+
     <File Path="AGENTS.md" />
     <File Path="CLAUDE.md" />
     <File Path="COPYING" />

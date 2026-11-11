@@ -45,10 +45,9 @@ Older target frameworks are provided for compatibility. This does not extend the
 
 ## Development
 
-Clone with submodules, or initialize them after cloning:
+MSBuild restores the shared configuration from the version of `TedToolkit.Build.Sdk` pinned in `global.json`. Run these commands from the repository root:
 
 ```sh
-git submodule update --init --recursive
 dotnet build TedToolkit.DependencyInjection.slnx -c Release
 dotnet run --project tests/TedToolkit.DependencyInjection.Tests -c Release
 dotnet pack src/TedToolkit.DependencyInjection -c Release -o artifacts/packages
